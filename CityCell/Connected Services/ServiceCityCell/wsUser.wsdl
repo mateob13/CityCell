@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="wsUser" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:57994/WSUser.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:57994/WSUser.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:57994/WSUser.svc?xsd=xsd2" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IWSUser_ObtenerLogin_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerLogin" />
+  </wsdl:message>
+  <wsdl:message name="IWSUser_ObtenerLogin_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerLoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWSUser_RegisterNow_InputMessage">
+    <wsdl:part name="parameters" element="tns:RegisterNow" />
+  </wsdl:message>
+  <wsdl:message name="IWSUser_RegisterNow_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RegisterNowResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWSUser_ObtenerProductos_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerProductos" />
+  </wsdl:message>
+  <wsdl:message name="IWSUser_ObtenerProductos_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerProductosResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IWSUser">
+    <wsdl:operation name="ObtenerLogin">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWSUser/ObtenerLogin" message="tns:IWSUser_ObtenerLogin_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWSUser/ObtenerLoginResponse" message="tns:IWSUser_ObtenerLogin_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RegisterNow">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWSUser/RegisterNow" message="tns:IWSUser_RegisterNow_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWSUser/RegisterNowResponse" message="tns:IWSUser_RegisterNow_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerProductos">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWSUser/ObtenerProductos" message="tns:IWSUser_ObtenerProductos_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWSUser/ObtenerProductosResponse" message="tns:IWSUser_ObtenerProductos_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IWSUser" type="tns:IWSUser">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ObtenerLogin">
+      <soap:operation soapAction="http://tempuri.org/IWSUser/ObtenerLogin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegisterNow">
+      <soap:operation soapAction="http://tempuri.org/IWSUser/RegisterNow" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerProductos">
+      <soap:operation soapAction="http://tempuri.org/IWSUser/ObtenerProductos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="wsUser">
+    <wsdl:port name="BasicHttpBinding_IWSUser" binding="tns:BasicHttpBinding_IWSUser">
+      <soap:address location="http://localhost:57994/WSUser.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
